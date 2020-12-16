@@ -9,6 +9,16 @@ public class FacebookConfig {
   private String apiKey;
   private String apiSecret;
 
+  public String getRedirectUrl() {
+    return redirectUrl;
+  }
+
+  public void setRedirectUrl(String redirectUrl) {
+    this.redirectUrl = redirectUrl;
+  }
+
+  private String redirectUrl;
+
   public String getApiKey() {
     return apiKey;
   }
@@ -27,6 +37,6 @@ public class FacebookConfig {
 
   @Bean
   public FacebookClientWrapper facebookClientWrapper() {
-    return new FacebookClientWrapper(apiKey, apiSecret);
+    return new FacebookClientWrapper(apiKey, apiSecret, redirectUrl);
   }
 }
